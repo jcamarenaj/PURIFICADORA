@@ -28,7 +28,7 @@
     <BreezeAuthenticatedLayout>
             <template #header>
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                    productos Index
+                    Productos
                 </h2>
             </template>
 
@@ -47,8 +47,7 @@
                         <div class="p-6 bg-white border-b border-gray-200">
                            <div class="mb-2">
                                 <Link :href="route('productos.create')">
-                                    <BreezeButton>Añadir productos</BreezeButton></Link
-                                >
+                                    <BreezeButton>Añadir producto</BreezeButton></Link>
                             </div>
                              <div
                                 class="relative overflow-x-auto shadow-md sm:rounded-lg"
@@ -65,10 +64,10 @@
                                                 Nombre
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Marca
+                                                Tipo
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Inventario
+                                                codigo
                                             </th>
                                             <th scope="col" class="px-6 py-3">
                                                 Editar
@@ -122,7 +121,7 @@
                                                     class="bg-red-700"
                                                     @click="destroy(productos.id)"
                                                 >
-                                                    Delete
+                                                    Elininar
                                                 </BreezeButton>
                                             </td>
                                         </tr>

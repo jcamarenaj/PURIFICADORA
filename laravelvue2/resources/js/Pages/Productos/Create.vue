@@ -14,9 +14,9 @@
 
 
     const form = useForm({
-        name: '',
-        namem: '',
-        id: '',
+        prudcto: '',
+        codigo: '',
+        descripcion: '',
 
     });
 
@@ -42,70 +42,72 @@
                             <form @submit.prevent="submit">
                                 <div class="mb-6">
                                     <label
-                                        for="Name"
+                                        for="prudcto"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                         >Nombre</label
                                     >
                                     <input
                                         type="text"
-                                        v-model="form.name"
-                                        name="name"
+                                        v-model="form.prudcto"
+                                        name="prudcto"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="Nombre de la persona"
+                                        placeholder="Nombre del producto"
                                     />
                                     <div
-                                        v-if="form.errors.name"
+                                        v-if="form.errors.prudcto"
                                         class="text-sm text-red-600"
                                     >
-                                        {{ form.errors.name }}
+                                        {{ form.errors.prudcto }}
                                     </div>
                                 </div>
                                 <div class="mb-6">
                                     <label
-                                        for="Age"
+                                        for="codigo"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        >Marca</label
+                                        >codigo</label
                                     >
                                     <input
                                         type="number"
-                                        v-model="form.namem"
-                                        name="name"
+                                        v-model="form.codigo"
+                                        name="codigo"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                        placeholder="Indique la edad en años de la persona"
+                                        placeholder="Indique el codigo del producto"
                                     />
                                     <div
-                                        v-if="form.errors.namem"
+                                        v-if="form.errors.codigo"
                                         class="text-sm text-red-600"
                                     >
-                                        {{ form.errors.namem }}
+                                        {{ form.errors.codigo }}
                                     </div>
                                 </div>
                                 <div class="mb-6">
                                     <label
-                                        for="Telephone"
+                                        for="descripcion"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        >Inventario</label
+                                        >tipo</label
                                     >
                                     <input
-                                        type="number"
-                                        v-model="form.id"
-                                        name="id"
-                                        id=""
+                                        type="text"
+                                        v-model="form.descripcion"
+                                        name="descripcion"
+                                        placeholder="descricion del producto"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     >
 
                                     <div
-                                        v-if="form.errors.id"
+                                        v-if="form.errors.descripcion"
                                         class="text-sm text-red-600"
                                     >
-                                        {{ form.errors.id }}
+                                        {{ form.errors.descripcion }}
                                     </div>
                                 </div>
                                 <button
+
                                     type="submit"
                                     class="text-white bg-blue-700  focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 "
                                     :disabled="form.processing"
                                     :class="{ 'opacity-25': form.processing }"
+
                                 >
                                     Registrar producto
                                 </button>

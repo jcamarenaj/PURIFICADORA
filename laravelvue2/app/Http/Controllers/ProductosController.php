@@ -15,14 +15,14 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        
-$productos= Productos::all();
-return Inertia::render('Productos/Index',
-    [
-        'productos' => $productos
-    ]
-    );
+        $productos = Productos::all();
 
+        return Inertia::render(
+            'Productos/Index',
+            [
+                'productos' => $productos
+            ]
+        );
     }
 
     /**
@@ -32,7 +32,9 @@ return Inertia::render('Productos/Index',
      */
     public function create()
     {
-        //
+        return Inertia::render(
+            'Productos/Create'
+        );
     }
 
     /**
@@ -43,13 +45,24 @@ return Inertia::render('Productos/Index',
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'prudcto' => 'required',
+            'codigo' => 'required',
+            'descripcion' => 'required'
+        ]);
+        Productos::create([
+            'prudcto' => $request->prudcto,
+            'codigo' => $request->codigo,
+            'descripcion' => $request->descripcion
+        ]);
+        sleep(1);
+        return redirect()->route('productos.index')->with('message', 'Productos Created Succesfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Productos  $productos
+     * @param  \App\Models\Persona  $persona
      * @return \Illuminate\Http\Response
      */
     public function show(Productos $productos)
@@ -60,34 +73,52 @@ return Inertia::render('Productos/Index',
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Productos  $productos
+     * @param  \App\Models\Productos  $persona
      * @return \Illuminate\Http\Response
      */
     public function edit(Productos $productos)
     {
-        //
+        return Inertia::render(
+            'Productos/Edit',
+            [
+                'productos' => $productos
+            ]
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Productos  $productos
+     * @param  \App\Models\Productos  $persona
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Productos $productos)
     {
-        //
+        $request->validate([
+            'prudcto' => 'required',
+            'codigo' => 'required',
+            'descripcion' => 'required'
+        ]);
+
+        $productos->prudcto = $request->prudcto;
+        $productos->codigo = $request->codigo;
+        $productos->descripcion = $request->descripcion;
+        $productos->save();
+        sleep(1);
+        return redirect()->route('productos.index')->with('message', 'Book Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Productos  $productos
+     * @param  \App\Models\Productos  $persona
      * @return \Illuminate\Http\Response
      */
     public function destroy(Productos $productos)
     {
-        //
+        $productos->delete();
+        sleep(1);
+        return redirect()->route('productos.index')->with('message', 'Book Delete Successfully');
     }
 }

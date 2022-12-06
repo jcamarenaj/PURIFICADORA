@@ -31,7 +31,7 @@
         <BreezeAuthenticatedLayout>
             <template #header>
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                    Editar productos
+                    productos
                 </h2>
             </template>
 
@@ -64,7 +64,7 @@
                                     <label
                                         for="Age"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        >Marca</label
+                                        >codigo</label
                                     >
                                     <input
                                         type="text"
@@ -82,24 +82,25 @@
                                 </div>
                                 <div class="mb-6">
                                     <label
-                                        for="Telephone"
+                                        for="Name"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        >Inventario</label
+                                        >tipo</label
                                     >
                                     <input
                                         type="text"
-                                        v-model="form.id"
-                                        name="id"
-                                        id=""
+                                        v-model="form.name"
+                                        name="name"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    >
-
+                                        placeholder="Nombre de la persona"
+                                    />
                                     <div
-                                        v-if="form.errors.id"
+                                        v-if="form.errors.name"
                                         class="text-sm text-red-600"
                                     >
-                                        {{ form.errors.id }}
+                                        {{ form.errors.name }}
                                     </div>
+                                </div>
+                                <div class="mb-6">
                                 </div>
                                 <button
                                     type="submit"
